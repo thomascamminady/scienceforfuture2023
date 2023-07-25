@@ -1,0 +1,10 @@
+project:
+  title: "scienceforfuture2023"
+  output-dir: .slides
+
+
+
+
+format:
+  revealjs:
+    theme: simple
