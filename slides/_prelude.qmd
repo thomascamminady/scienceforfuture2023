@@ -1,0 +1,14 @@
+## Quiz
+
+[Ist das KI?](https://directpoll.com/r?XDbzPBd3ixYqg8tMPoeAV7wc3BzeALtPCeIVuaub)
+
+::: notes
+Admin Link: <https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC>
+:::
+
+## TOC (delete this slide later)
+
+- Quiz: Glaubt ihr DAS ist KI/AI? (Ohne Erklärung)
+- Duolingo: KI deutsch - deutsch
+  - KI == Datenbasierter Algortihmus
+- Was ist ein algorithmus, was ist AI Algorithmus

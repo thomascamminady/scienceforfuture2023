@@ -1,5 +1,18 @@
-# Bias
+# II. Bias
 
-##
+:::: {.columns}
 
-![Bias Laundering, [@JanelleCShane](https://twitter.com/janellecshane/status/1405598023619649537?s=21&t=cxiVL75DvO8YNWano9a2kw)](slides/assets/fig/biaslaundering.jpeg){width=300}
+::: {.column width="50%"}
+
+
+
+:::
+
+::: {.column width="50%"}
+
+
+![Bias Laundering, [@JanelleCShane](https://twitter.com/janellecshane/status/1405598023619649537?s=21&t=cxiVL75DvO8YNWano9a2kw)](slides/assets/fig/biaslaundering.jpeg){height=500px}
+
+:::
+
+::::

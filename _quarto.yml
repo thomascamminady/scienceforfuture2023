@@ -6,6 +6,10 @@ project:
     browser: true
     watch-inputs: true
 
+execute:
+  freeze: auto  # re-render only when source changes
+  # cache: true
+
 editor:
   render-on-save: true
 

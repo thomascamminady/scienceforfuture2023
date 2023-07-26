@@ -2,7 +2,7 @@
 title: "KI und Bias"
 author: "Dr. Thomas Camminady"
 institute: "Data Scientist & Algorithm Developer  \nWahoo Fitness LLC"
-footer: "Science for Future 2023 - Künstliche Intelligenz"
+footer: "Gymnasium Haus Overbach - Science for Future 2023 - 01.09.2023"
 date: "2023-09-01"
 toc: false
 title-slide-attributes:
@@ -12,110 +12,9 @@ chalkboard: true
 
 
 
+
+{{< include slides/_prelude.qmd >}}
 {{< include slides/_basics.qmd >}}
 {{< include slides/_datenbasiert.qmd >}}
 {{< include slides/_bias.qmd >}}
 {{< include slides/_bias_example_hr.qmd >}}
-
-
-
-
-<!--
-
-
-
-
-## MORE STUFF
-
-```{python}
-from scienceforfuture2023.utils.logger import logger
-import altair as alt
-import polars as pl
-import numpy as np
-import json
-from rich import print
-from camminapy.plot import altair_theme
-
-altair_theme()
-path = "/Users/thomascamminady/Data/runalyze/30378-gdpr-backup/json/2023-03-06-16781065054778.json"
-with open(path, "r") as f:
-    data = json.load(f)
-df = pl.from_dict(
-    {
-        key: value
-        for key, value in data["stream"][0].items()
-        if value != [] and key != "Pauses"
-    }
-)
-alt.Chart(df).mark_line(color="red", strokeWidth=3).encode(
-    x=alt.X("Duration:Q").title("Zeit [Sekunden]"),
-    y=alt.Y("HeartRate:Q").title("Puls [BPM]"),
-).properties(
-    title=f"""Puls für den Lauf am {path.split("/")[-1].removesuffix(".json")[:10]}"""
-)
-```
-
-
-## b
-
-```{python}
-from dataclasses import dataclass
-import numpy as np
-import numpy.typing as npt
-
-alt.data_transformers.disable_max_rows()
-
-
-@dataclass
-class Params:
-    n: int
-    lower: float
-    upper: float
-
-    def get_bpm(self) -> npt.NDArray:
-        # return np.random.rand(self.n) * (self.upper - self.lower) + self.lower
-        return (self.upper - self.lower) / 3 * np.random.randn(self.n) + self.lower
-
-
-def model(bpm: npt.NDArray, sigma: float = 0.5, mu: float = 0) -> npt.NDArray:
-    extra = (bpm - 100) / 100
-    return (sigma + extra) * 2 * np.random.randn(len(bpm)) + mu
-
-
-men_bpm = Params(400_000, 120, 180).get_bpm()
-men_bpm_error = model(men_bpm)
-
-women_bpm = Params(100_000, 140, 200).get_bpm()
-women_bpm_error = model(women_bpm)
-
-df = pl.concat(
-    [
-        pl.DataFrame({"sex": "Mann", "bpm": men_bpm, "error": men_bpm_error}),
-        pl.DataFrame({"sex": "Frau", "bpm": women_bpm, "error": women_bpm_error}),
-    ]
-)
-alt.Chart(df.sample(n=5000, seed=1)).mark_point(
-    filled=True, size=50, opacity=1, clip=True
-).encode(
-    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
-    y="error:Q",
-    order=alt.Order("sex:N", sort="descending"),
-    #   color=alt.Color("sex:N")
-    #   .scale(domain=["Mann", "Frau"], range=["green", "purple"])
-    #   .title("Biologisches Geschlecht"),
-)
-```
-
-## c
-```{python}
-alt.Chart(df.sample(n=5000, seed=1)).mark_point(
-    filled=True, size=50, opacity=1, clip=True
-).encode(
-    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
-    y="error:Q",
-    order=alt.Order("sex:N", sort="descending"),
-    color=alt.Color("sex:N")
-    .scale(domain=["Mann", "Frau"], range=["green", "purple"])
-    .title("Biologisches Geschlecht"),
-)
-``` -->

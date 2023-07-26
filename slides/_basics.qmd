@@ -1,19 +1,20 @@
-## Quiz
+# I. Algorithmen
 
-[Ist das KI?](https://directpoll.com/r?XDbzPBd3ixYqg8tMPoeAV7wc3BzeALtPCeIVuaub)
+:::: {.columns}
 
-::: notes
-Admin Link: <https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC>
+::: {.column width="50%"}
+
+
+
 :::
 
-## TOC (delete this slide later)
+::: {.column width="50%"}
 
-- Quiz: Glaubt ihr DAS ist KI/AI? (Ohne Erklärung)
-- Duolingo: KI deutsch - deutsch
-  - KI == Datenbasierter Algortihmus
-- Was ist ein algorithmus, was ist AI Algorithmus
+![Randall Munroe, [xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](slides/assets/fig/xkcd_upscaled.jpg){height=500px}
 
-# Algorithmen
+:::
+
+::::
 
 ## Klassische Algorithmen
 

@@ -1,6 +1,4 @@
-## Und was ist dann KI?
 
-![Randall Munroe, [https://xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](slides/assets/fig/xkcd_machine_learning.png){height=500px}
 
 ## Und was ist dann KI?
 
@@ -30,7 +28,9 @@ KI = Datenbasierter Algorithmus
 
 ![](slides/assets/fig/palmer_penguins.jpeg){width=1000}
 
-**Problem**: Nur geschultes Personal ist dazu in der Lage.
+::: {.callout-important title="Problem"}
+Nur geschultes Personal ist dazu in der Lage.
+:::
 
 ## Klassifizierung von Pinguinen
 
@@ -65,11 +65,16 @@ Daten: Gorman KB, Williams TD, Fraser WR
 
 ## Klassifizierung von Pinguinen
 
-**Idee**: Wir entwickeln einen Klassifizierungsalgorithmus der uns bei gegebener Schnabellänge und -tiefe sagen kann, um welchen Pinguin es sich handelt.
+
+::: {.callout-tip title="Idee"}
+Wir entwickeln einen Klassifizierungsalgorithmus der uns bei gegebener Schnabellänge und -tiefe sagen kann, um welchen Pinguin es sich handelt.
+:::
 
 **Vorteil**: Messung ist auch für ungeschultes Personal möglich.
 
 ## Training
+
+Ausgangssituation
 
 ```{python}
 pp.chart().properties(width=800)
@@ -77,11 +82,15 @@ pp.chart().properties(width=800)
 
 ## Training
 
+Das Leben einfacher machen...
+
 ```{python}
 pp.chart(discard_chinstrap=True).properties(width=800)
 ```
 
 ## Training
+
+Aufteilung in Training- und Testdaten
 
 ```{python}
 chart_penguins = pp.chart(discard_chinstrap=True, sample_n=30).properties(width=800)
@@ -90,11 +99,14 @@ chart_penguins
 
 ## Training
 
+Unsere KI: [Support Vector Machine](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=support+vector+machine+&btnG=) (Stützvektormaschine)
+
 ```{python}
 chart_penguins + pp.line()
 ```
 
 ## Training
+Oberhalb = Adelie. Unterhalb = Gentoo.
 
 ```{python}
 chart_penguins + pp.line() + pp.area()
@@ -124,10 +136,10 @@ def gerade(x):
 
 
 def algorithmus(laenge, tiefe):
-    if laenge > gerade(tiefe):
+    if laenge > gerade(tiefe):  # Oberhalb
         return "Adelie"
     else:
-        return "Gentoo"
+        return "Gentoo"  # Unterhalb
 
 
 ```
@@ -166,6 +178,7 @@ pp.line() + pp.area()
 ```
 
 Nur 1 Pinguin ist falsch klassifiziert.
+
 
 ## Zusammenfassung
 
