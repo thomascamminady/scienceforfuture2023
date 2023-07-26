@@ -1,15 +1,6 @@
 # scienceforfuture2023
 
-Find this repository on [Github](https://github.com/thomascamminady/scienceforfuture2023) or check out the [documentation](https://thomascamminady.github.io/scienceforfuture2023).
-
-
-## Development
-
-Set up the full project by running `make`.
-
-## Documentation
-Go to `Settings->Pages` and set `Source` (under `Build and deployment`) to `Github Actions`.
-
+https://thomascamminady.github.io/scienceforfuture2023
 
 ## Credits
 
