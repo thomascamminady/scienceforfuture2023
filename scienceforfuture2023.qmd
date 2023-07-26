@@ -10,7 +10,6 @@ title-slide-attributes:
 ---
 
 
-
 {{< include slides/_prelude.qmd >}}
 {{< include slides/_basics.qmd >}}
 {{< include slides/_datenbasiert.qmd >}}

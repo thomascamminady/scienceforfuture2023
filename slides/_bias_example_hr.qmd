@@ -90,8 +90,7 @@ def algorithmus(lichtintensität, filterstärke):
 Wie bestimmen wir die Filterstärke? Training!
 
 
-## MORE STUFF
-
+## Trainingsprozess
 ```{python}
 from scienceforfuture2023.utils.logger import logger
 import altair as alt
@@ -105,25 +104,51 @@ altair_theme()
 path = "/Users/thomascamminady/Data/runalyze/30378-gdpr-backup/json/2023-03-06-16781065054778.json"
 with open(path, "r") as f:
     data = json.load(f)
-df = pl.from_dict(
+df_all = pl.from_dict(
     {
         key: value
         for key, value in data["stream"][0].items()
         if value != [] and key != "Pauses"
     }
 )
+
+df = pl.concat(
+    [
+        df_all.select("Duration", "HeartRate").with_columns(
+            pl.lit("Referenz").alias("Algorithmus"),
+            pl.col("HeartRate").cast(pl.Float64),
+        ),
+        df_all.select("Duration", "HeartRate")
+        .with_columns(pl.lit("Filter n=2").alias("Algorithmus"))
+        .with_columns(pl.col("HeartRate").apply(lambda s: s + np.random.randn() + 10)),
+        df_all.select("Duration", "HeartRate")
+        .with_columns(pl.lit("Filter n=5").alias("Algorithmus"))
+        .with_columns(pl.col("HeartRate").apply(lambda s: s + np.random.randn() + 2)),
+        df_all.select("Duration", "HeartRate")
+        .with_columns(pl.lit("Filter n=8").alias("Algorithmus"))
+        .with_columns(pl.col("HeartRate").apply(lambda s: s + np.random.randn() - 10)),
+    ]
+).take_every(10)
+
+
 alt.Chart(df).mark_line(color="red", strokeWidth=3).encode(
     x=alt.X("Duration:Q").title("Zeit [Sekunden]"),
-    y=alt.Y("HeartRate:Q").title("Puls [BPM]"),
+    y=alt.Y("HeartRate:Q").title("Puls [BPM]").scale(zero=False),
+    color=alt.Color("Algorithmus:N"),
 ).properties(
-    title=f"""Puls für den Lauf am {path.split("/")[-1].removesuffix(".json")[:10]}""",
     width=700,
 )
 ```
 
+- Mit unseren Testdaten können wir für jede Filterstärke einen mittleren Fehler bestimmen.
+- Finde die Filterstärke, die den mittleren Fehler (über mehrere Läufe) minimiert.
 
-## b
 
+
+## Trainingsprozess
+
+- Fehlerverteilung mit optimalen Parametern
+- Algorithmus ist genauer bei niedrigem Puls und gleichzeitig ungenauer bei hohem Puls
 ```{python}
 from dataclasses import dataclass
 import numpy as np
@@ -166,13 +191,16 @@ alt.Chart(df.sample(n=5000, seed=1)).mark_point(
     x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
     y="error:Q",
     order=alt.Order("sex:N", sort="descending"),
-    #   color=alt.Color("sex:N")
-    #   .scale(domain=["Mann", "Frau"], range=["green", "purple"])
-    #   .title("Biologisches Geschlecht"),
+).properties(
+    width=600
 )
 ```
 
-## c
+## Trainingsprozess
+
+- Frauen haben tendenziell einen höheren Puls, waren im Training aber unterrepräsentiert.
+- Algorithmus ist also weniger genau bei Frauen.
+
 ```{python}
 alt.Chart(df.sample(n=5000, seed=1)).mark_point(
     filled=True, size=50, opacity=1, clip=True
@@ -183,5 +211,27 @@ alt.Chart(df.sample(n=5000, seed=1)).mark_point(
     color=alt.Color("sex:N")
     .scale(domain=["Mann", "Frau"], range=["green", "purple"])
     .title("Biologisches Geschlecht"),
+).properties(
+    width=600
 )
+
 ```
+
+
+## Bias
+
+- Trainingsdatensatz war nicht ausbalanciert bzgl. der Geschlechter.
+- Training optimiert daher mit einem Bias für Männer.
+- Bis zu 30% höherer Fehler.
+
+
+
+
+::: {.callout-important title="Problematisch bei Anwendungen in der Medizin"}
+Insbesondere bei medizinischen Anwendungen kann ein Bias zu großen Problemen führen.
+:::
+
+
+::: {.callout-important title="Nicht immer offensichtlich"}
+Problem scheint hier offensichtlich, ist aber oft schwierig zu erkennen.
+:::
