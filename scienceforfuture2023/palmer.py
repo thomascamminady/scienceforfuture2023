@@ -1,9 +1,11 @@
 import altair as alt
 import pandas as pd
+from camminapy.plot import altair_theme
 
 
 class PalmerPenguins:
     def __init__(self):
+        altair_theme()
         self.df = pd.read_csv("https://pos.it/palmer-penguins-github-csv")
         self.names = ["Adelie", "Chinstrap", "Gentoo"]
         self.colors = ["#FF8C00", "#A020F0", "#008B8B"]

@@ -1,0 +1,187 @@
+
+
+
+# Bias am Beispiel der Herzfrequenzerkennung
+
+## Herzfrequenz
+
+- Herzfrequenz ist eine wichtige Metrik in der Medizin und im Sport.
+- Es existieren verschiedene Arten die Herzfrequenz zu messen.
+
+![](slides/assets/fig/puls.jpeg){width=400px}
+![](slides/assets/fig/puls2.jpeg){width=400px}
+
+
+## Optische Herzfrequenzerkennung
+
+- Messung der Lichtintensität
+
+![](slides/assets/fig/ohr.jpeg){height=200px}
+
+- Distanz zwischen Peaks liefert Puls
+
+![[Illustrationen: Csilla Timar-Fulep / Zemax](https://support.zemax.com/hc/en-us/articles/1500005579202-How-to-model-the-human-skin-and-optical-heart-rate-sensors-in-OpticStudio)](slides/assets/fig/ppg.jpeg){height=200px}
+
+
+## Die Realität ist etwas komplizierter...
+```{python}
+import numpy as np
+import altair as alt
+import polars as pl
+
+n = 100
+sigma = 0.4
+t = np.linspace(0, 10, n)
+y = np.sin(2 * np.pi * t) + sigma * np.random.randn(n) + 0.1 * t
+df = pl.DataFrame({"Zeit": t, "Intensität": y})
+alt.Chart(df).mark_line().encode(x="Zeit:Q", y="Intensität:Q").properties(width=800)
+
+
+```
+
+## Wir filtern das Signal
+
+
+```{python}
+def smooth(x, N):
+    return np.convolve(x, np.ones(N) / N, mode="same")
+
+
+y2 = smooth(y, 2)
+y3 = smooth(y, 5)
+y4 = smooth(y, 8)
+df2 = pl.DataFrame({"Zeit": t, "Intensität": y2})
+df3 = pl.DataFrame({"Zeit": t, "Intensität": y3})
+df4 = pl.DataFrame({"Zeit": t, "Intensität": y4})
+
+df_all = pl.concat(
+    [
+        df.with_columns(pl.lit("Ungefiltert").alias("Filter")),
+        df2.with_columns(pl.lit("n=2").alias("Filter")),
+        df3.with_columns(pl.lit("n=5").alias("Filter")),
+        df4.with_columns(pl.lit("n=8").alias("Filter")),
+    ]
+)
+alt.Chart(df_all).mark_line(strokeWidth=2).encode(
+    x="Zeit:Q", y="Intensität:Q", color="Filter:N", row="Filter:N"
+).properties(width=800, height=100)
+```
+
+
+## Unser Algorithmus
+
+```{python}
+# | echo: true
+
+
+def algorithmus(lichtintensität, filterstärke):
+    # Zuerst filtern wir das Signal
+    lichtintensität = filter(lichtintensität, filterstärke)
+
+    # Dann bestimmen wir die Abstände zwischen den Peaks
+    abstände = finde_abstände_zwischen_peaks(lichtintensität)
+
+    # Der Puls ist 60 / Abstand in Sekunden
+    return 60 / abstände
+
+
+```
+
+Wie bestimmen wir die Filterstärke? Training!
+
+
+## MORE STUFF
+
+```{python}
+from scienceforfuture2023.utils.logger import logger
+import altair as alt
+import polars as pl
+import numpy as np
+import json
+from rich import print
+from camminapy.plot import altair_theme
+
+altair_theme()
+path = "/Users/thomascamminady/Data/runalyze/30378-gdpr-backup/json/2023-03-06-16781065054778.json"
+with open(path, "r") as f:
+    data = json.load(f)
+df = pl.from_dict(
+    {
+        key: value
+        for key, value in data["stream"][0].items()
+        if value != [] and key != "Pauses"
+    }
+)
+alt.Chart(df).mark_line(color="red", strokeWidth=3).encode(
+    x=alt.X("Duration:Q").title("Zeit [Sekunden]"),
+    y=alt.Y("HeartRate:Q").title("Puls [BPM]"),
+).properties(
+    title=f"""Puls für den Lauf am {path.split("/")[-1].removesuffix(".json")[:10]}""",
+    width=700,
+)
+```
+
+
+## b
+
+```{python}
+from dataclasses import dataclass
+import numpy as np
+import numpy.typing as npt
+
+alt.data_transformers.disable_max_rows()
+
+
+@dataclass
+class Params:
+    n: int
+    lower: float
+    upper: float
+
+    def get_bpm(self) -> npt.NDArray:
+        # return np.random.rand(self.n) * (self.upper - self.lower) + self.lower
+        return (self.upper - self.lower) / 3 * np.random.randn(self.n) + self.lower
+
+
+def model(bpm: npt.NDArray, sigma: float = 0.5, mu: float = 0) -> npt.NDArray:
+    extra = (bpm - 100) / 100
+    return (sigma + extra) * 2 * np.random.randn(len(bpm)) + mu
+
+
+men_bpm = Params(400_000, 120, 180).get_bpm()
+men_bpm_error = model(men_bpm)
+
+women_bpm = Params(100_000, 140, 200).get_bpm()
+women_bpm_error = model(women_bpm)
+
+df = pl.concat(
+    [
+        pl.DataFrame({"sex": "Mann", "bpm": men_bpm, "error": men_bpm_error}),
+        pl.DataFrame({"sex": "Frau", "bpm": women_bpm, "error": women_bpm_error}),
+    ]
+)
+alt.Chart(df.sample(n=5000, seed=1)).mark_point(
+    filled=True, size=50, opacity=1, clip=True
+).encode(
+    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
+    y="error:Q",
+    order=alt.Order("sex:N", sort="descending"),
+    #   color=alt.Color("sex:N")
+    #   .scale(domain=["Mann", "Frau"], range=["green", "purple"])
+    #   .title("Biologisches Geschlecht"),
+)
+```
+
+## c
+```{python}
+alt.Chart(df.sample(n=5000, seed=1)).mark_point(
+    filled=True, size=50, opacity=1, clip=True
+).encode(
+    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
+    y="error:Q",
+    order=alt.Order("sex:N", sort="descending"),
+    color=alt.Color("sex:N")
+    .scale(domain=["Mann", "Frau"], range=["green", "purple"])
+    .title("Biologisches Geschlecht"),
+)
+```

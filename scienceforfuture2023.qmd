@@ -7,9 +7,7 @@ date: "2023-09-01"
 toc: false
 title-slide-attributes:
     data-background-image: "slides/assets/fig/ki_mit_bias.jpeg"
-chalkboard: true
 ---
-
 
 
 
