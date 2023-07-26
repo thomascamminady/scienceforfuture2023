@@ -1,0 +1,8 @@
+digraph R {
+
+  { rank=same "Eingabe" "Algorithmus" "Ausgabe" }
+  "Eingabe"[color="lightblue",style="filled",label="Start & Ziel",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Navi",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Route",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+}

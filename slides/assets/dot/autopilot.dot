@@ -1,0 +1,14 @@
+digraph R {
+  compound=true;
+  { rank=same Eingabe Algorithmus Ausgabe }
+  {rank = same Daten Trainingsalgorithmus}
+  "Eingabe"[color="lightblue",style="filled",label="Video von Autofahrt",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Autopilot",fontname="Arial"]
+  "Trainingsalgorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Aktionen (bremsen, lenken, ...)",fontname="Arial"]
+  "Daten"[color="plum1",style="filled",label="Videos von Autofahrten & Aktionen",fontname="Arial"]
+  Daten-> Trainingsalgorithmus -> Algorithmus
+  subgraph cluster1{
+  Eingabe -> Algorithmus -> Ausgabe
+  }
+}

@@ -6,6 +6,8 @@ project:
     browser: true
     watch-inputs: true
 
+editor:
+  render-on-save: true
 
 format:
   revealjs:

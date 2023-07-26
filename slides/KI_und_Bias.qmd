@@ -11,6 +11,7 @@ toc: false
 {{< include _basics.qmd >}}
 {{< include _datenbasiert.qmd >}}
 {{< include _bias.qmd >}}
+{{< include _bias_example_hr.qmd >}}
 
 
 
