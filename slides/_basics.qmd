@@ -2,12 +2,12 @@
 
 [Ist das KI?](https://directpoll.com/r?XDbzPBd3ixYqg8tMPoeAV7wc3BzeALtPCeIVuaub)
 
-::: {.notes}
-Admin Link: [https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC](https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC)
+::: notes
+Admin Link: <https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC>
 :::
 
-
 ## TOC (delete this slide later)
+
 - Quiz: Glaubt ihr DAS ist KI/AI? (Ohne Erklärung)
 - Duolingo: KI deutsch - deutsch
   - KI == Datenbasierter Algortihmus
@@ -15,44 +15,44 @@ Admin Link: [https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC](https://d
 
 # Algorithmen
 
-
 ## Klassische Algorithmen
-
 
 ```{dot}
 //| file: slides/assets/dot/simple_algorithm.dot
 ```
 
 ## Klassische Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/sort.dot
 ```
 
 ## Klassische Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/navi.dot
 ```
 
-
 ## Klassische Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/wetter.dot
 ```
 
-
-
 ## Sortieralgorithmus
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
+
 ```{dot}
 //| fig-width: 3.5
-//| file: slides/assets/dot/sort.dot
+//| file: slides/assets/dot/sort_tb.dot
 ```
+
 :::
 
 ::: {.column width="60%"}
+
 ```{python}
 # | echo: true
 import random
@@ -75,5 +75,4 @@ algorithmus([5, 3, 2, 1, 4])
 ```
 
 :::
-
-::::
+:::

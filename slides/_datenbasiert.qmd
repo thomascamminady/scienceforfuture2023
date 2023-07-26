@@ -1,32 +1,28 @@
-
-
 ## Und was ist dann KI?
 
 ![Randall Munroe, [https://xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](slides/assets/fig/xkcd_machine_learning.png){height=500px}
-
 
 ## Und was ist dann KI?
 
 KI = Datenbasierter Algorithmus
 
-
-
 ## Datenbasierte Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/datenbasierter_algorithmus.dot
 ```
 
 ## Datenbasierte Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/autopilot.dot
 ```
 
 ## Datenbasierte Algorithmen
+
 ```{dot}
 //| file: slides/assets/dot/chatgpt.dot
 ```
-
-
 
 ## Klassifizierung von Pinguinen
 
@@ -34,13 +30,11 @@ KI = Datenbasierter Algorithmus
 
 ![](slides/assets/fig/palmer_penguins.jpeg){width=1000}
 
-
 **Problem**: Nur geschultes Personal ist dazu in der Lage.
 
 ## Klassifizierung von Pinguinen
 
 **Ausweg**: Muster nutzen und erkennen
-
 
 :::: {.columns}
 
@@ -48,12 +42,9 @@ KI = Datenbasierter Algorithmus
 ![](slides/assets/fig/palmer_penguins.jpeg)
 ![](slides/assets/fig/bill_length_depth.jpeg)
 
-
 Illustrationen: Allison Horst
 
 :::
-
-
 
 ::: {.column width="70%"}
 
@@ -72,13 +63,11 @@ Daten: Gorman KB, Williams TD, Fraser WR
 
 ::::
 
-
 ## Klassifizierung von Pinguinen
 
 **Idee**: Wir entwickeln einen Klassifizierungsalgorithmus der uns bei gegebener Schnabellänge und -tiefe sagen kann, um welchen Pinguin es sich handelt.
 
 **Vorteil**: Messung ist auch für ungeschultes Personal möglich.
-
 
 ## Training
 
@@ -99,8 +88,6 @@ chart_penguins = pp.chart(discard_chinstrap=True, sample_n=30).properties(width=
 chart_penguins
 ```
 
-
-
 ## Training
 
 ```{python}
@@ -108,6 +95,7 @@ chart_penguins + pp.line()
 ```
 
 ## Training
+
 ```{python}
 chart_penguins + pp.line() + pp.area()
 ```
@@ -124,8 +112,8 @@ chart_penguins + pp.line() + pp.area()
 
 :::
 
-
 ::: {.column width="60%"}
+
 ```{python}
 # | echo: true
 
@@ -155,14 +143,14 @@ Der Trainingsprozess liefert einen Algorithmus zur Klassifizierung von Pinguinen
 //| file: slides/assets/dot/datenbasierter_algorithmus.dot
 ```
 
-
 ## Anwendung des Algorithmus
+
 ```{python}
 pp.line() + pp.area()
 ```
 
-
 ## Anwendung des Algorithmus
+
 ```{python}
 (
     pp.area()
@@ -172,6 +160,7 @@ pp.line() + pp.area()
 ```
 
 ## Anwendung des Algorithmus
+
 ```{python}
 (pp.area() + pp.line() + pp.chart(discard_chinstrap=True).properties(width=800))
 ```
@@ -181,8 +170,6 @@ Nur 1 Pinguin ist falsch klassifiziert.
 ## Zusammenfassung
 
 :::: {.columns}
-
-
 
 ::: {.column width="50%"}
 

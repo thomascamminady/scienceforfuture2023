@@ -11,7 +11,7 @@ editor:
 
 format:
   revealjs:
-    theme: default
+    theme: [default,styles.scss]
     highlight-style: dracula
     code-line-numbers: true
     code-fold: false

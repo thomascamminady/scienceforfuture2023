@@ -1,24 +1,21 @@
 ---
 title: "KI und Bias"
-author: "Thomas Camminady"
-subtitle: "subtitle"
-institute: "Data Scientist & Algorithm Developer,  \nWahoo Fitness LLC"
+author: "Dr. Thomas Camminady"
+institute: "Data Scientist & Algorithm Developer  \nWahoo Fitness LLC"
 footer: "Science for Future 2023 - Künstliche Intelligenz"
 date: "2023-09-01"
 toc: false
+title-slide-attributes:
+    data-background-image: "slides/assets/fig/ki_mit_bias.jpeg"
+chalkboard: true
 ---
+
+
 
 {{< include slides/_basics.qmd >}}
 {{< include slides/_datenbasiert.qmd >}}
 {{< include slides/_bias.qmd >}}
 {{< include slides/_bias_example_hr.qmd >}}
-
-
-
-
-
-
-
 
 
 
