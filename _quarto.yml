@@ -1,6 +1,6 @@
 project:
   title: "scienceforfuture2023"
-  output-dir: _slides
+  output-dir: docs
   preview:
     port: 4200
     browser: true
