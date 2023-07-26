@@ -2,7 +2,7 @@
 
 ## Und was ist dann KI?
 
-![Randall Munroe, [https://xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](assets/fig/xkcd_machine_learning.png){height=500px}
+![Randall Munroe, [https://xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](slides/assets/fig/xkcd_machine_learning.png){height=500px}
 
 
 ## Und was ist dann KI?
@@ -13,17 +13,17 @@ KI = Datenbasierter Algorithmus
 
 ## Datenbasierte Algorithmen
 ```{dot}
-//| file: assets/dot/datenbasierter_algorithmus.dot
+//| file: slides/assets/dot/datenbasierter_algorithmus.dot
 ```
 
 ## Datenbasierte Algorithmen
 ```{dot}
-//| file: assets/dot/autopilot.dot
+//| file: slides/assets/dot/autopilot.dot
 ```
 
 ## Datenbasierte Algorithmen
 ```{dot}
-//| file: assets/dot/chatgpt.dot
+//| file: slides/assets/dot/chatgpt.dot
 ```
 
 
@@ -32,7 +32,7 @@ KI = Datenbasierter Algorithmus
 
 **Situation**: Wissenschaftler_innen möchten den Pinguinbestand überwachen.
 
-![](assets/fig/palmer_penguins.jpeg){width=1000}
+![](slides/assets/fig/palmer_penguins.jpeg){width=1000}
 
 
 **Problem**: Nur geschultes Personal ist dazu in der Lage.
@@ -45,8 +45,8 @@ KI = Datenbasierter Algorithmus
 :::: {.columns}
 
 ::: {.column width="30%"}
-![](assets/fig/palmer_penguins.jpeg)
-![](assets/fig/bill_length_depth.jpeg)
+![](slides/assets/fig/palmer_penguins.jpeg)
+![](slides/assets/fig/bill_length_depth.jpeg)
 
 
 Illustrationen: Allison Horst
@@ -152,7 +152,7 @@ Der Trainingsprozess liefert einen Algorithmus zur Klassifizierung von Pinguinen
 ```{dot}
 //| fig-width: 500px
 //| fig-height: 200px
-//| file: assets/dot/datenbasierter_algorithmus.dot
+//| file: slides/assets/dot/datenbasierter_algorithmus.dot
 ```
 
 
@@ -190,7 +190,7 @@ Klassische Algorithmen
 
 ```{dot}
 //| fig-width: 500px
-//| file: assets/dot/simple_algorithm.dot
+//| file: slides/assets/dot/simple_algorithm.dot
 
 ```
 
@@ -202,7 +202,7 @@ Datenbasierte Algorithmen
 
 ```{dot}
 //| fig-width: 500px
-//| file: assets/dot/datenbasierter_algorithmus.dot
+//| file: slides/assets/dot/datenbasierter_algorithmus.dot
 
 ```
 

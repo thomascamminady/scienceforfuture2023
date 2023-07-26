@@ -20,23 +20,23 @@ Admin Link: [https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC](https://d
 
 
 ```{dot}
-//| file: assets/dot/simple_algorithm.dot
+//| file: slides/assets/dot/simple_algorithm.dot
 ```
 
 ## Klassische Algorithmen
 ```{dot}
-//| file: assets/dot/sort.dot
+//| file: slides/assets/dot/sort.dot
 ```
 
 ## Klassische Algorithmen
 ```{dot}
-//| file: assets/dot/navi.dot
+//| file: slides/assets/dot/navi.dot
 ```
 
 
 ## Klassische Algorithmen
 ```{dot}
-//| file: assets/dot/wetter.dot
+//| file: slides/assets/dot/wetter.dot
 ```
 
 
@@ -48,7 +48,7 @@ Admin Link: [https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC](https://d
 ::: {.column width="40%"}
 ```{dot}
 //| fig-width: 3.5
-//| file: assets/dot/sort.dot
+//| file: slides/assets/dot/sort.dot
 ```
 :::
 

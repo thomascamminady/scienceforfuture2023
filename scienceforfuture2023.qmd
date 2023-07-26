@@ -8,10 +8,10 @@ date: "2023-09-01"
 toc: false
 ---
 
-{{< include _basics.qmd >}}
-{{< include _datenbasiert.qmd >}}
-{{< include _bias.qmd >}}
-{{< include _bias_example_hr.qmd >}}
+{{< include slides/_basics.qmd >}}
+{{< include slides/_datenbasiert.qmd >}}
+{{< include slides/_bias.qmd >}}
+{{< include slides/_bias_example_hr.qmd >}}
 
 
 
