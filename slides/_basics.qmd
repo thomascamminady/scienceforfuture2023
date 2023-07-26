@@ -1,0 +1,115 @@
+
+
+## Quiz
+
+[Ist das KI?](https://directpoll.com/r?XDbzPBd3ixYqg8tMPoeAV7wc3BzeALtPCeIVuaub)
+
+::: {.notes}
+Admin Link: [https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC](https://directpoll.com/c?XDVhEtRpk95hLkmX6EwVi6RsXzSkMdC)
+:::
+
+
+## TOC (delete this slide later)
+- Quiz: Glaubt ihr DAS ist KI/AI? (Ohne Erklärung)
+- Duolingo: KI deutsch - deutsch
+  - KI == Datenbasierter Algortihmus
+- Was ist ein algorithmus, was ist AI Algorithmus
+
+# Algorithmen
+
+
+## Klassische Algorithmen
+
+
+```{dot}
+digraph R {
+  { rank=same Eingabe Algorithmus Ausgabe }
+  "Eingabe"[color="lightblue",style="filled",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",fontname="Arial"]
+
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+
+}
+```
+
+## Klassische Algorithmen
+```{dot}
+digraph R {
+  { rank=same "Eingabe" "Algorithmus" "Ausgabe" }
+  "Eingabe"[color="lightblue",style="filled",label="[5,3,2,1,4]",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Sortieralgorithmus",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="[1,2,3,4,5]",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+}
+```
+
+## Klassische Algorithmen
+```{dot}
+digraph R {
+
+  { rank=same "Eingabe" "Algorithmus" "Ausgabe" }
+  "Eingabe"[color="lightblue",style="filled",label="Start & Ziel",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Navi",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Route",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+}
+```
+
+
+## Klassische Algorithmen
+```{dot}
+digraph R {
+  { rank=same "Eingabe" "Algorithmus" "Ausgabe" }
+  "Eingabe"[color="lightblue",style="filled",label="Wetter heute",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Wettersimulation",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Vorhersage Wetter morgen",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+}
+```
+
+
+
+## Sortieralgorithmus
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{dot}
+//| fig-width: 3.5
+
+digraph R {
+  // { rank=same "Eingabe" "Algorithmus" "Ausgabe" }
+  "Eingabe"[color="lightblue",style="filled",label="[5,3,2,1,4]",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Sortieralgorithmus",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="[1,2,3,4,5]",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+}
+```
+:::
+
+::: {.column width="60%"}
+```{python}
+# | echo: true
+import random
+
+
+def algorithmus(zahlen):
+    while not ist_sortiert(zahlen):
+        random.shuffle(zahlen)
+    return zahlen
+
+
+def ist_sortiert(zahlen):
+    for i in range(len(zahlen) - 1):
+        if zahlen[i] > zahlen[i + 1]:
+            return False
+    return True
+
+
+algorithmus([5, 3, 2, 1, 4])
+```
+
+:::
+
+::::

@@ -1,0 +1,410 @@
+
+
+## Und was ist dann KI?
+
+![Randall Munroe, [https://xkcd.com/1838](https://xkcd.com/1838),  (CC BY-NC 2.5)](img_xkcd_machine_learning.png){height=500px}
+
+
+## Und was ist dann KI?
+
+KI = Datenbasierter Algorithmus
+
+
+
+## Datenbasierte Algorithmen
+```{dot}
+digraph R {
+  compound=true;
+  { rank=same Eingabe Algorithmus Ausgabe }
+  {rank = same Daten Trainingsalgorithmus}
+  "Eingabe"[color="lightblue",style="filled",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Trainingsalgorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",fontname="Arial"]
+  "Daten"[color="plum1",style="filled",fontname="Arial"]
+  Daten-> Trainingsalgorithmus -> Algorithmus
+  subgraph cluster1{
+  Eingabe -> Algorithmus -> Ausgabe
+  }
+}
+```
+
+## Datenbasierte Algorithmen
+```{dot}
+digraph R {
+  compound=true;
+  { rank=same Eingabe Algorithmus Ausgabe }
+  {rank = same Daten Trainingsalgorithmus}
+  "Eingabe"[color="lightblue",style="filled",label="Video von Autofahrt",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="Autopilot",fontname="Arial"]
+  "Trainingsalgorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Aktionen (bremsen, lenken, ...)",fontname="Arial"]
+  "Daten"[color="plum1",style="filled",label="Videos von Autofahrten & Aktionen",fontname="Arial"]
+  Daten-> Trainingsalgorithmus -> Algorithmus
+  subgraph cluster1{
+  Eingabe -> Algorithmus -> Ausgabe
+  }
+}
+```
+
+## Datenbasierte Algorithmen
+```{dot}
+digraph R {
+  compound=true;
+  { rank=same Eingabe Algorithmus Ausgabe }
+  {rank = same Daten Trainingsalgorithmus}
+  "Eingabe"[color="lightblue",style="filled",label="Prompt",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",label="ChatGPT",fontname="Arial"]
+  "Trainingsalgorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",label="Antwort",fontname="Arial"]
+  "Daten"[color="plum1",style="filled",label="Textkorpus",fontname="Arial"]
+  Daten-> Trainingsalgorithmus -> Algorithmus
+  subgraph cluster1{
+  Eingabe -> Algorithmus -> Ausgabe
+  }
+}
+```
+
+
+
+## Klassifizierung von Pinguinen
+
+**Situation**: Wissenschaftler_innen möchten den Pinguinbestand überwachen.
+
+![](img_palmer_penguins.jpeg){width=1000}
+
+
+**Problem**: Nur geschultes Personal ist dazu in der Lage.
+
+## Klassifizierung von Pinguinen
+
+**Ausweg**: Muster nutzen und erkennen
+
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![](img_palmer_penguins.jpeg)
+![](img_bill_length_depth.jpeg)
+
+
+Illustrationen: Allison Horst
+
+:::
+
+
+
+::: {.column width="70%"}
+
+```{python}
+import altair as alt
+import polars as pl
+import numpy as np
+import pandas as pd
+
+penguins = pd.read_csv("https://pos.it/palmer-penguins-github-csv")
+
+scale = alt.Scale(
+    domain=["Adelie", "Chinstrap", "Gentoo"], range=["#FF8C00", "#A020F0", "#008B8B"]
+)
+alt.Chart(penguins).mark_circle(size=60).encode(
+    alt.X("bill_length_mm", scale=alt.Scale(zero=False)),
+    alt.Y("bill_depth_mm", scale=alt.Scale(zero=False)),
+    color=alt.Color("species", scale=scale),
+    tooltip=["species", "sex", "island"],
+).properties(width=400)
+```
+
+Daten: Gorman KB, Williams TD, Fraser WR
+
+:::
+
+::::
+
+
+## Klassifizierung von Pinguinen
+
+**Idee**: Wir entwickeln einen Klassifizierungsalgorithmus der uns bei gegebener Schnabellänge und -tiefe sagen kann, um welchen Pinguin es sich handelt.
+
+**Vorteil**: Messung ist auch für ungeschultes Personal möglich.
+
+
+## Training
+
+```{python}
+alt.Chart(penguins).mark_circle(size=60, clip=True).encode(
+    alt.X("bill_length_mm", scale=alt.Scale(domain=(30, 60))),
+    alt.Y("bill_depth_mm", scale=alt.Scale(domain=(13, 22))),
+    color=alt.Color("species", scale=scale),
+    tooltip=["species", "sex", "island"],
+).properties(width=800)
+```
+
+## Training
+
+```{python}
+
+scale = alt.Scale(domain=["Adelie", "Gentoo"], range=["#FF8C00", "#008B8B"])
+chart_penguins = (
+    alt.Chart(penguins.loc[penguins["species"] != "Chinstrap"])
+    .mark_circle(size=60, clip=True)
+    .encode(
+        alt.X("bill_length_mm", scale=alt.Scale(domain=(30, 60))),
+        alt.Y("bill_depth_mm", scale=alt.Scale(domain=(13, 22))),
+        color=alt.Color("species", scale=scale),
+        tooltip=["species", "sex", "island"],
+    )
+    .properties(width=800)
+)
+chart_penguins
+```
+
+## Training
+
+```{python}
+
+scale = alt.Scale(domain=["Adelie", "Gentoo"], range=["#FF8C00", "#008B8B"])
+chart_penguins = (
+    alt.Chart(
+        penguins.loc[penguins["species"] != "Chinstrap"].sample(30, random_state=1)
+    )
+    .mark_circle(size=60, clip=True)
+    .encode(
+        alt.X("bill_length_mm", scale=alt.Scale(domain=(30, 60))),
+        alt.Y("bill_depth_mm", scale=alt.Scale(domain=(13, 22))),
+        color=alt.Color("species", scale=scale),
+        tooltip=["species", "sex", "island"],
+    )
+    .properties(width=800)
+)
+chart_penguins
+```
+
+
+
+## Training
+
+```{python}
+line = (
+    alt.Chart(pd.DataFrame({"bill_length_mm": [30, 64], "bill_depth_mm": [13, 22]}))
+    .mark_line(color="black", strokeDash=[4, 4], clip=True)
+    .encode(
+        alt.X("bill_length_mm", scale=alt.Scale(zero=False)),
+        alt.Y("bill_depth_mm", scale=alt.Scale(zero=False)),
+    )
+)
+chart_penguins + line
+```
+
+## Training
+```{python}
+area = (
+    alt.Chart(
+        pd.DataFrame(
+            {
+                "bill_length_mm": [30, 64, 30, 64],
+                "bill_depth_mm": [13, 22, 100, 100],
+                "species": ["Gentoo", "Gentoo", "Adelie", "Adelie"],
+            }
+        )
+    )
+    .mark_area(clip=True, opacity=0.2)
+    .encode(
+        alt.X("bill_length_mm"),
+        alt.Y("bill_depth_mm", stack="zero"),
+        color=alt.Color(
+            "species",
+            scale=scale,
+        ),
+    )
+)
+chart_penguins + line + area
+
+
+```
+
+## Training
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{python}
+area = (
+    alt.Chart(
+        pd.DataFrame(
+            {
+                "bill_length_mm": [30, 64, 30, 64],
+                "bill_depth_mm": [13, 22, 100, 100],
+                "species": ["Gentoo", "Gentoo", "Adelie", "Adelie"],
+            }
+        )
+    )
+    .mark_area(clip=True, opacity=0.2)
+    .encode(
+        alt.X("bill_length_mm"),
+        alt.Y("bill_depth_mm", stack="zero"),
+        color=alt.Color(
+            "species",
+            scale=scale,
+        ),
+    )
+)
+(chart_penguins + line + area).properties(width=200, height=100)
+
+
+```
+
+:::
+
+
+::: {.column width="60%"}
+```{python}
+# | echo: true
+
+
+def gerade(x):
+    m = (22 - 13) / (60 - 30)
+    return m * (x - 30) + 13
+
+
+def algorithmus(laenge, tiefe):
+    if laenge > gerade(tiefe):
+        return "Adelie"
+    else:
+        return "Gentoo"
+
+
+```
+
+:::
+::::
+
+## Anwendung des Algorithmus
+```{python}
+chart_penguins = (
+    alt.Chart(
+        penguins.loc[penguins["species"] != "Chinstrap"].sample(n=30, random_state=1)
+    )
+    .mark_circle(size=60, clip=True)
+    .encode(
+        alt.X("bill_length_mm", scale=alt.Scale(domain=(30, 60))),
+        alt.Y("bill_depth_mm", scale=alt.Scale(domain=(13, 22))),
+        color=alt.Color("species", scale=scale),
+        tooltip=["species", "sex", "island"],
+    )
+    .properties(width=800)
+)
+area = (
+    alt.Chart(
+        pd.DataFrame(
+            {
+                "bill_length_mm": [30, 64, 30, 64],
+                "bill_depth_mm": [13, 22, 100, 100],
+                "species": ["Gentoo", "Gentoo", "Adelie", "Adelie"],
+            }
+        )
+    )
+    .mark_area(clip=True, opacity=0.2)
+    .encode(
+        alt.X("bill_length_mm"),
+        alt.Y("bill_depth_mm", stack="zero"),
+        color=alt.Color(
+            "species",
+            scale=scale,
+        ),
+    )
+)
+(chart_penguins + line + area)
+```
+
+
+## Anwendung des Algorithmus
+```{python}
+chart_penguins = (
+    alt.Chart(penguins.loc[penguins["species"] != "Chinstrap"])
+    .mark_circle(size=60, clip=True)
+    .encode(
+        alt.X("bill_length_mm", scale=alt.Scale(domain=(30, 60))),
+        alt.Y("bill_depth_mm", scale=alt.Scale(domain=(13, 22))),
+        color=alt.Color("species", scale=scale),
+        tooltip=["species", "sex", "island"],
+    )
+    .properties(width=800)
+)
+area = (
+    alt.Chart(
+        pd.DataFrame(
+            {
+                "bill_length_mm": [30, 64, 30, 64],
+                "bill_depth_mm": [13, 22, 100, 100],
+                "species": ["Gentoo", "Gentoo", "Adelie", "Adelie"],
+            }
+        )
+    )
+    .mark_area(clip=True, opacity=0.2)
+    .encode(
+        alt.X("bill_length_mm"),
+        alt.Y("bill_depth_mm", stack="zero"),
+        color=alt.Color(
+            "species",
+            scale=scale,
+        ),
+    )
+)
+(chart_penguins + line + area)
+
+
+```
+
+
+## Zusammenfassung
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+Klassische Algorithmen
+
+```{dot}
+//| fig-width: 500px
+//|
+digraph R {
+    { rank=same Eingabe Algorithmus Ausgabe }
+  "Eingabe"[color="lightblue",style="filled",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",fontname="Arial"]
+  "Eingabe"->"Algorithmus"->"Ausgabe"
+
+}
+```
+
+:::
+
+::: {.column width="50%"}
+
+Datenbasierte Algorithmen
+
+```{dot}
+//| fig-width: 500px
+digraph R {
+  compound=true;
+  { rank=same Eingabe Algorithmus Ausgabe }
+  {rank = same Daten Trainingsalgorithmus}
+  "Eingabe"[color="lightblue",style="filled",fontname="Arial"]
+  "Algorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Trainingsalgorithmus"[color="orange",style="filled",shape="box",fontname="Arial"]
+  "Ausgabe"[color="lightgreen",style="filled",fontname="Arial"]
+  "Daten"[color="plum1",style="filled",fontname="Arial"]
+  Daten-> Trainingsalgorithmus -> Algorithmus
+  subgraph cluster1{
+  Eingabe -> Algorithmus -> Ausgabe
+  }
+}
+```
+
+:::
+
+::::

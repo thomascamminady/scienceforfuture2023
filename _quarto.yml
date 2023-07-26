@@ -1,10 +1,20 @@
 project:
   title: "scienceforfuture2023"
   output-dir: .slides
-
-
+  preview:
+    port: 4200
+    browser: true
+    watch-inputs: true
 
 
 format:
   revealjs:
-    theme: simple
+    theme: default
+    highlight-style: dracula
+    code-line-numbers: true
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true

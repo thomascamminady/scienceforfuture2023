@@ -14,6 +14,7 @@ camminapy = "^1.1.11"
 nbformat = "^5.9.1"
 ipykernel = "^6.24.0"
 nbclient = "^0.8.0"
+pandas = "^2.0.3"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.4.1"
