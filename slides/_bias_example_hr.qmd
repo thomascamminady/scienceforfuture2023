@@ -188,8 +188,8 @@ df = pl.concat(
 alt.Chart(df.sample(n=5000, seed=1)).mark_point(
     filled=True, size=50, opacity=1, clip=True
 ).encode(
-    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
-    y="error:Q",
+    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]).title("Puls [BPM]"),
+    y=alt.Y("error:Q").title("Fehler [BPM]"),
     order=alt.Order("sex:N", sort="descending"),
 ).properties(
     width=600
@@ -205,8 +205,8 @@ alt.Chart(df.sample(n=5000, seed=1)).mark_point(
 alt.Chart(df.sample(n=5000, seed=1)).mark_point(
     filled=True, size=50, opacity=1, clip=True
 ).encode(
-    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]),
-    y="error:Q",
+    x=alt.X("bpm:Q").scale(zero=False, domain=[60, 200]).title("Puls [BPM]"),
+    y=alt.Y("error:Q").title("Fehler [BPM]"),
     order=alt.Order("sex:N", sort="descending"),
     color=alt.Color("sex:N")
     .scale(domain=["Mann", "Frau"], range=["green", "purple"])

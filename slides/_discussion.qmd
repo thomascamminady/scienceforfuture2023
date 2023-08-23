@@ -1,0 +1,39 @@
+# Diskussion
+
+
+
+## What could go wrong?
+
+
+[Speech2Face](https://speech2face.github.io)
+![](slides/assets/fig/speech2face.jpeg)
+
+
+## What could go wrong?
+
+
+[Prison Term Prediction](https://aclanthology.org/D19-1667.pdf)
+![](slides/assets/fig/charge.jpeg)
+
+
+
+
+
+## Was glaubt ihr: Wo haben Algorithmen Bias?
+
+- Beispiele für Algorithmen mit konkreten Problemen / Bias?
+- Wie äußert sich Bias in eurem Beispiel?
+- Welche Konsequenzen hat das Ganze für betroffenene Personen?
+- Was ist der mathematische Grund für Bias?
+- Was könnte man anders machen?
+
+
+
+# Q&A
+
+## Zeit für Fragen und Antworten
+
+
+- Was möchtet ihr fragen?
+- Was soll ich noch einmal erklären?
+- Was war vielleicht unklar?

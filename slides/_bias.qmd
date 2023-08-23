@@ -1,4 +1,4 @@
-# II. Bias
+# Bias
 
 :::: {.columns}
 
@@ -12,6 +12,64 @@
 
 
 ![Bias Laundering, [@JanelleCShane](https://twitter.com/janellecshane/status/1405598023619649537?s=21&t=cxiVL75DvO8YNWano9a2kw)](slides/assets/fig/biaslaundering.jpeg){height=500px}
+
+:::
+
+::::
+
+
+## Definition
+
+- Bias ≈ Voreingenommenheit / Verzerrung.
+- "Bias" bezeichnet eine Neigung oder Vorliebe in eine bestimmte Richtung, oft aufgrund von Vorurteilen.
+- Es kann sich auf Vorurteile in Daten, Entscheidungen oder Wahrnehmungen beziehen.
+- Nicht immer absichtlich oder bewusst.
+- Kann zu falschen oder ungerechten Ergebnissen führen.
+
+
+
+## Bias im Kontext von KI
+
+**Vorhersage von Verbrechen**
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+- ProPublica untersuchte die COMPAS-Software, ein Instrument zur Vorhersage des Rückfallrisikos von Straftätern in den USA.
+- Die Analyse ergab, dass die Software Schwarze Personen ungerechtfertigt als wahrscheinlicher zukünftige Straftäter einstufte, im Vergleich zu weißen Personen mit ähnlichen Vorstrafen.
+
+:::
+
+::: {.column width="30%"}
+
+![[ProPublica](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)](slides/assets/fig/propublica.jpeg){height=200px}
+
+
+:::
+
+::::
+
+## BIas im Kontext von KI
+
+**Amazons Bewerbungsalgorithmus**
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+- Mehr Männer bei Amazon
+- Lebensläufe wurden auf Wörter überprüft, die häufig zu Einstellungen geführt haben.
+- Manche Wörter werden häufiger von Männern benutzt.
+- Verstärkender Kreislauf der Männer befürwortet.
+
+:::
+
+::: {.column width="30%"}
+
+![[Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)](slides/assets/fig/reuters2.jpeg){height=200px}
+
 
 :::
 

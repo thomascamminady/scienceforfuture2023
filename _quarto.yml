@@ -2,7 +2,7 @@ project:
   title: "scienceforfuture2023"
   output-dir: docs
   preview:
-    port: 4200
+    port: 2222
     browser: true
     watch-inputs: true
 
@@ -15,7 +15,6 @@ editor:
 
 format:
   revealjs:
-
     # embed-resources: true
     theme: [default,styles.scss]
     highlight-style: dracula
@@ -23,7 +22,7 @@ format:
     code-fold: false
     code-tools: true
     code-copy: true
-    navigation-mode: vertical
+    navigation-mode: linear # vertical
     controls-layout: bottom-right
     controls-tutorial: true
     chalkboard:

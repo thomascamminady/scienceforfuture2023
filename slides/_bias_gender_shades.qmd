@@ -1,0 +1,137 @@
+
+
+# Bias am Beispiel der Gesichtserkennung
+
+## Von 2D zu 3D zu 784D
+
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![](slides/assets/fig/palmer_penguins.jpeg)
+![](slides/assets/fig/bill_length_depth.jpeg)
+
+Illustrationen: Allison Horst
+
+:::
+
+::: {.column width="70%"}
+
+```{python}
+from scienceforfuture2023.palmer import PalmerPenguins
+
+pp = PalmerPenguins()
+penguins = pp.df
+scale = pp.scale
+pp.chart()
+```
+
+Daten: Gorman KB, Williams TD, Fraser WR
+
+:::
+
+::::
+
+
+## Von 2D zu 3D zu 784D
+
+
+
+
+
+:::: {.columns}
+
+
+::: {.column width="70%"}
+```{python}
+from scienceforfuture2023.palmer import PalmerPenguins
+import plotly.express as px
+
+pp = PalmerPenguins()
+penguins = pp.df
+
+fig = px.scatter_3d(penguins, x='bill_length_mm', y='bill_depth_mm', z='body_mass_g',
+              color='species',color_discrete_sequence=["#FF8C00", "#A020F0", "#008B8B"])
+fig.show()
+
+
+```
+:::
+
+
+::: {.column width="30%"}
+- Hinzufügen von Gewicht resultiert in 3D Klassifizierungsproblem.
+- Statt Geraden, nun Ebenen.
+:::
+
+::::
+
+
+
+## Von 2D zu 3D zu 784D
+
+
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+MNIST Ziffernerkennung
+
+- Bilder mit 28*28=784 Pixeln.
+- Jeder Pixel ist eine Dimension.
+- Hyperebenen in Hyperräumen.
+- Vorteil: Kein Aufwand, jeder Pixel wird als Dimension interpretiert.
+
+
+
+
+:::
+
+::: {.column width="50%"}
+![](slides/assets/fig/MnistExamplesModified.png)
+
+:::
+
+::::
+
+
+## Von 2D zu 3D zu 784D
+
+![](slides/assets/fig/imagematrix.png)
+
+
+
+## Gender Shades
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](slides/assets/fig/gendershades.jpeg)
+
+
+![](slides/assets/fig/stats2.jpeg)
+
+
+:::
+
+::: {.column width="50%"}
+
+![](slides/assets/fig/example.jpeg)
+
+
+:::
+
+::::
+
+
+
+
+## Gender Shades
+
+
+{{< video https://www.youtube.com/watch?v=TWWsW1w-BVo >}}

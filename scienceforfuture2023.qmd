@@ -1,13 +1,13 @@
 ---
 title: "KI und Bias"
 author: "Dr. Thomas Camminady"
-institute: "Data Scientist & Algorithm Developer  \nWahoo Fitness LLC"
+institute: "Algorithm Developer @ Wahoo Fitness LLC"
 footer: "Gymnasium Haus Overbach - Science for Future 2023 - 01.09.2023"
 date: "2023-09-01"
 toc: false
-title-slide-attributes:
-    data-background-image: "slides/assets/fig/ki_mit_bias.jpeg"
+
 ---
+
 
 
 {{< include slides/_prelude.qmd >}}
@@ -15,3 +15,5 @@ title-slide-attributes:
 {{< include slides/_datenbasiert.qmd >}}
 {{< include slides/_bias.qmd >}}
 {{< include slides/_bias_example_hr.qmd >}}
+{{< include slides/_bias_gender_shades.qmd >}}
+{{< include slides/_discussion.qmd >}}
