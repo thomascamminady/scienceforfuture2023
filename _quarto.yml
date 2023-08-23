@@ -15,15 +15,15 @@ editor:
 
 format:
   revealjs:
-    # embed-resources: true
+    embed-resources: true
     theme: [simple,docs/styles.scss]
     highlight-style: dracula
     code-line-numbers: true
     code-fold: false
     code-tools: true
     code-copy: true
-    navigation-mode: linear # vertical
+    navigation-mode: vertical
     controls-layout: bottom-right
     controls-tutorial: true
-    chalkboard:
-      theme: whiteboard
+    # chalkboard:
+    #   theme: whiteboard
