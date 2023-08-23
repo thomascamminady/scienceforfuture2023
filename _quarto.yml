@@ -16,7 +16,7 @@ editor:
 format:
   revealjs:
     # embed-resources: true
-    theme: [simple,styles.scss]
+    theme: [simple,docs/styles.scss]
     highlight-style: dracula
     code-line-numbers: true
     code-fold: false
