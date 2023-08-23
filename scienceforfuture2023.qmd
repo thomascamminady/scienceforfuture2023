@@ -1,8 +1,8 @@
 ---
-title: "KI und Bias"
+title: "KI & Bias"
 author: "Dr. Thomas Camminady"
 institute: "Algorithm Developer @ Wahoo Fitness LLC"
-footer: "Gymnasium Haus Overbach - Science for Future 2023 - 01.09.2023"
+footer: "Gymnasium Haus Overbach - Science for Future - 1. September 2023"
 date: "2023-09-01"
 toc: false
 
