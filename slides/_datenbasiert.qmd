@@ -22,7 +22,12 @@ KI = Datenbasierter Algorithmus
 //| file: slides/assets/dot/chatgpt.dot
 ```
 
-## Klassifizierung von Pinguinen
+
+
+
+## Datenbasierte Algorithmen --- Ein Beispiel
+
+**Klassifizierung von Pinguinen**
 
 **Situation**: Wissenschaftler_innen möchten den Pinguinbestand überwachen.
 
@@ -96,6 +101,7 @@ Aufteilung in Training- und Testdaten
 chart_penguins = pp.chart(discard_chinstrap=True, sample_n=30).properties(width=800)
 chart_penguins
 ```
+
 
 ## Training
 
@@ -209,3 +215,9 @@ Datenbasierte Algorithmen
 :::
 
 ::::
+
+## Zusammenfassung
+
+::: {.callout-note title="Diskussion"}
+Was für weitere Beispiele fallen euch noch ein?
+:::

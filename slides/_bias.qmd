@@ -51,7 +51,7 @@
 
 ::::
 
-## BIas im Kontext von KI
+## Bias im Kontext von KI
 
 **Amazons Bewerbungsalgorithmus**
 
@@ -74,3 +74,11 @@
 :::
 
 ::::
+
+
+
+## Bias im Kontext von KI
+
+::: {.callout-note title="Diskussion"}
+Was für weitere Beispiele fallen euch noch ein?
+:::

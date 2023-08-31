@@ -30,3 +30,10 @@ Ich hoffe,
 
 - dass ihr alle Spaß an diesem Workshop und der Thematik habt;
 - dass ich euer Interesse für die Thematik KI wecken / erhöhen kann.
+
+
+## Bevor es los geht...
+
+https://github.com/thomascamminady/scienceforfuture2023/
+
+![](slides/assets/fig/qr.png){width=4in}

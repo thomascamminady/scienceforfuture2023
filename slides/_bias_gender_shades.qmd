@@ -131,7 +131,13 @@ MNIST Ziffernerkennung
 
 
 
+
+
 ## Gender Shades
 
 
-{{< video https://www.youtube.com/watch?v=TWWsW1w-BVo >}}
+::: {.callout-note title="Diskussion"}
+
+Was glaubt ihr, welche Probleme können sich hier ergeben?
+
+:::
