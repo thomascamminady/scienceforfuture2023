@@ -2,7 +2,18 @@
 
 ## Und was ist dann KI?
 
-KI = Datenbasierter Algorithmus
+
+::: {.callout-note title="Excalidraw"}
+Was ist KI für euch?
+:::
+
+
+## Und was ist dann KI?
+
+Heute beschränken wir uns auf diese Definition:
+
+**KI = Datenbasierter Algorithmus**
+
 
 ## Datenbasierte Algorithmen
 
@@ -216,8 +227,23 @@ Datenbasierte Algorithmen
 
 ::::
 
-## Zusammenfassung
 
-::: {.callout-note title="Diskussion"}
+## Datenbasierte Algorithmen
+![](slides/assets/fig/palmer_penguins.jpeg)
+
+
+::: {.callout-note title="Excalidraw"}
+
+Könnt ihr die Pinguine klassifizieren?
+
+:::
+
+
+
+
+## Datenbasierte Algorithmen
+
+
+::: {.callout-note title="Excalidraw"}
 Was für weitere Beispiele fallen euch noch ein?
 :::

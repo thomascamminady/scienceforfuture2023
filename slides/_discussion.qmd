@@ -19,7 +19,14 @@
 
 
 
-## Was glaubt ihr: Wo haben Algorithmen Bias?
+## Was glaubt ihr?
+
+
+::: {.callout-note title="Excalidraw"}
+Wo haben Algorithmen Bias?
+
+:::
+
 
 - Beispiele für Algorithmen mit konkreten Problemen / Bias?
 - Wie äußert sich Bias in eurem Beispiel?

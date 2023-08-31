@@ -32,6 +32,14 @@ Ich hoffe,
 - dass ich euer Interesse für die Thematik KI wecken / erhöhen kann.
 
 
+
+::: {.callout-note title="FYI"}
+Ich mache das hier zum ersten Mal, wenn etwas unklar ist oder ihr Fragen habt, ihr seid vermutlich nicht alleine. Fragt :)
+:::
+
+
+
+
 ## Bevor es los geht...
 
 https://github.com/thomascamminady/scienceforfuture2023/

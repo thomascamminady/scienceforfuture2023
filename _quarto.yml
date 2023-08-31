@@ -22,7 +22,7 @@ format:
     code-fold: false
     code-tools: true
     code-copy: true
-    navigation-mode: vertical
+    navigation-mode: linear
     controls-layout: bottom-right
     controls-tutorial: true
     # chalkboard:
