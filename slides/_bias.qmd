@@ -59,7 +59,7 @@
 
 ::: {.column width="60%"}
 
-- Mehr Männer bei Amazon
+- Mehr Männer bei Amazon.
 - Lebensläufe wurden auf Wörter überprüft, die häufig zu Einstellungen geführt haben.
 - Manche Wörter werden häufiger von Männern benutzt.
 - Verstärkender Kreislauf der Männer befürwortet.

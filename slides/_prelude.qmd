@@ -1,3 +1,11 @@
+
+## Bevor es los geht...
+
+https://github.com/thomascamminady/scienceforfuture2023/
+
+![](slides/assets/fig/qr.png){width=4in}
+
+
 ## Quiz
 
 [Ist das KI?](https://directpoll.com/r?XDbzPBd3ixYqg8tMPoeAV7wc3BzeALtPCeIVuaub)
@@ -36,12 +44,3 @@ Ich hoffe,
 ::: {.callout-note title="FYI"}
 Ich mache das hier zum ersten Mal, wenn etwas unklar ist oder ihr Fragen habt, ihr seid vermutlich nicht alleine. Fragt :)
 :::
-
-
-
-
-## Bevor es los geht...
-
-https://github.com/thomascamminady/scienceforfuture2023/
-
-![](slides/assets/fig/qr.png){width=4in}

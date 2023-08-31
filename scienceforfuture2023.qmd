@@ -1,12 +1,15 @@
 ---
 title: "KI & Bias"
 author: "Thomas Camminady"
-institute: "Data Scientist - https://github.com/thomascamminady/scienceforfuture2023"
+institute: "Data Scientist @ Wahoo Fitness"
 footer: "Gymnasium Haus Overbach - Science for Future - 1. September 2023"
-date: "2023-09-01"
 toc: false
 
 ---
+
+
+
+
 
 
 {{< include slides/_prelude.qmd >}}
