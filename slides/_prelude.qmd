@@ -5,6 +5,36 @@ https://github.com/thomascamminady/scienceforfuture2023/
 
 ![](slides/assets/fig/qr.png){width=4in}
 
+## Ganz kurz zu mir
+
+**Studium**
+
+![](slides/assets/fig/Studium.jpeg){width=4in}
+
+## Ganz kurz zu mir
+
+**Promotion**
+
+![](slides/assets/fig/Promotion.jpeg){width=4in}
+
+## Ganz kurz zu mir
+
+**Job**
+
+![](slides/assets/fig/Job.jpeg){width=4in}
+
+
+## Wahoo Fitness
+
+![](slides/assets/fig/wahoo1.jpeg){width=4in}
+
+## Wahoo Fitness
+
+![](slides/assets/fig/wahoo2.jpeg){width=4in}
+
+
+
+
 
 ## Quiz
 
